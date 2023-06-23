@@ -5,7 +5,7 @@ namespace WatchList.Data
 {
     public class FilmUser
     {
-        public string IdMyUser { get; set; }
+        public int IdMyUser { get; set; }
         public int IdFilm { get; set; }
         public bool Seen { get; set; }
         public int Note { get; set; }

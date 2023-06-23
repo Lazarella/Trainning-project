@@ -7,7 +7,7 @@ namespace WatchList.Models
     public class ModeleVueFilm
     {
         [Key]
-        public int Id { get; set; }
+        public int IdFilm { get; set; }
         public string Title { get; set; }
         public DateTime releaseDate { get; set; }
         public string Director { get; set; }
