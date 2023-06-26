@@ -19,11 +19,42 @@ namespace WatchList.Controllers
         }
 
         // GET: Films
+
+        [HttpPost]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file != null && file.Length > 0)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(memoryStream);
+                    var film = new Film();
+                    film.Poster = memoryStream.ToArray();
+
+                    // Save film to the database or perform any other desired operations
+                }
+            }
+
+            return RedirectToAction("Index"); // Redirect to another action or page
+        }
+
+       /* public async Task<IActionResult> Index()
+        {
+            return _context.Films != null ?
+                        View(await _context.Films.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Films'  is null.");
+        }*/
         public async Task<IActionResult> Index()
         {
-              return _context.Films != null ? 
-                          View(await _context.Films.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Films'  is null.");
+            if (_context.Films != null)
+            {
+                var films = await _context.Films.ToListAsync();
+                return View(films);
+            }
+            else
+            {
+                return Problem("The 'Films' entity set is null. Please check your database configuration.");
+            }
         }
 
         // GET: Films/Details/5

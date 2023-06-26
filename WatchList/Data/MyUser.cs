@@ -6,10 +6,10 @@ public class MyUser : Microsoft.AspNetCore.Identity.IdentityUser
 {
     public MyUser() : base()
     {
-        this.ListeFilms = new HashSet<FilmUser>();
+        this.FilmList = new HashSet<FilmUser>();
     }
-    public string FirstName { get; set; }
-    public virtual ICollection<FilmUser> ListeFilms { get; set; }
+    public string FirstName { get; set; } = string.Empty; // Non-nullable with default value
+    public virtual ICollection<FilmUser> FilmList { get; set; }
 
 }
 

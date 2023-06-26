@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace WatchList.Models
@@ -20,4 +20,4 @@ namespace WatchList.Models
         public int? Note { get; set; }
 
     }
-}
+}*/

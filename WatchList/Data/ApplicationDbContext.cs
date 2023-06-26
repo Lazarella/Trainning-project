@@ -23,6 +23,7 @@ public DbSet<FilmUser> FilmUsers { get; set; }
         }
 
 
-        public DbSet<WatchList.Models.ModeleVueFilm>? ModeleVueFilm { get; set; }
+       /* public DbSet<WatchList.Models.ModeleVueFilm>? ModeleVueFilm { get; set; }*/
     }
+
 }
