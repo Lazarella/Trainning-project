@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WatchList.Data;
 
@@ -11,9 +12,10 @@ using WatchList.Data;
 namespace WatchList.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230626093809_UpdateColumnTypes")]
+    partial class UpdateColumnTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -408,7 +410,7 @@ namespace WatchList.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("MyUser", "User")
-                        .WithMany("FilmList")
+                        .WithMany("ListeFilms")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -420,7 +422,7 @@ namespace WatchList.Data.Migrations
 
             modelBuilder.Entity("MyUser", b =>
                 {
-                    b.Navigation("FilmList");
+                    b.Navigation("ListeFilms");
                 });
 #pragma warning restore 612, 618
         }
